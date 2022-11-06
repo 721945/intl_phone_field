@@ -459,10 +459,14 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
                 ],
                 if (widget.showCountryFlag) ...[
                   ClipOval(
-                    child: Image.asset(
-                      'assets/flags/${_selectedCountry.code.toLowerCase()}.png',
-                      package: 'intl_phone_field',
+                    child: SizedBox(
                       width: 20,
+                      child: Image.asset(
+                        'assets/flags/${_selectedCountry.code.toLowerCase()}.png',
+                        package: 'intl_phone_field',
+                        // width: 20,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   SizedBox(width: 8),

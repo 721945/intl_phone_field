@@ -237,6 +237,8 @@ class IntlPhoneField extends StatefulWidget {
   /// If unset, defaults to [EdgeInsets.zero].
   final EdgeInsets flagsButtonMargin;
 
+  final double flagsButtonSize;
+
   IntlPhoneField({
     Key? key,
     this.initialCountryCode,
@@ -281,6 +283,7 @@ class IntlPhoneField extends StatefulWidget {
     this.showCursor = true,
     this.pickerDialogStyle,
     this.flagsButtonMargin = EdgeInsets.zero,
+    this.flagsButtonSize = 32,
   }) : super(key: key);
 
   @override
@@ -460,7 +463,8 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
                 if (widget.showCountryFlag) ...[
                   ClipOval(
                     child: SizedBox(
-                      width: 20,
+                      width: widget.flagsButtonSize,
+                      height: widget.flagsButtonSize,
                       child: Image.asset(
                         'assets/flags/${_selectedCountry.code.toLowerCase()}.png',
                         package: 'intl_phone_field',

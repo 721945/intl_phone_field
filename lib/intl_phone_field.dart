@@ -239,6 +239,8 @@ class IntlPhoneField extends StatefulWidget {
 
   final double flagsButtonSize;
 
+  final bool canPopDialog;
+
   IntlPhoneField({
     Key? key,
     this.initialCountryCode,
@@ -284,6 +286,7 @@ class IntlPhoneField extends StatefulWidget {
     this.pickerDialogStyle,
     this.flagsButtonMargin = EdgeInsets.zero,
     this.flagsButtonSize = 32,
+    this.canPopDialog = true,
   }) : super(key: key);
 
   @override
@@ -491,7 +494,7 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
               ],
             ),
           ),
-          onTap: widget.enabled ? _changeCountry : null,
+          onTap: widget.enabled && widget.canPopDialog ? _changeCountry : null,
         ),
       ),
     );
